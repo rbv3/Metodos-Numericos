@@ -986,12 +986,40 @@ def k3Backward(steps, tn, yn, fn, h):
 
 	line1, = plt.plot(Vx, Vy, label='Backward K3')
 
+def exata(steps, tn, yn, str2, h):
+
+	fn = sympify(str2)
+
+	Vy = list()
+	Vx = list()
+	Vy.append(yn)
+	Vx.append(tn)
+
+	t = symbols("t")
+	print("\n Função Exata: Resultados:")
+	for x in range(0, steps+1):
+
+		yn = fn.subs(t, tn)
+
+		print("y",x+1, ": ", "%.16f"%yn,"t", x+1, ": ","%.2f"%tn)
+		Vx.append(tn)		
+		Vy.append(yn)
+
+		tn += h
+
+
+	line1, = plt.plot(Vx, Vy, label='Exata')
+
+
+
 #lembrar de apagar esse hardcode dps e descomentar os input()
 #tn = 0
 #yn = 1
 #h = 0.05
 #tf = 0.4
-print("\nOla, por favor insira f, vulgo y':")
+print("\nOla, por favor insira a função exata, vulgo y")
+str2 = input()
+print("\nAgora, por favor insira f, vulgo y':")
 str1 = input()
 print("\nAgora, insira o valor inicial de t, t0:")
 tn = input()
@@ -1010,6 +1038,7 @@ print("\nPor ultimo, por favor, determine qual o metodo:(no max 5 metodos difere
 y, t = symbols("y t")
 #str1 = "-3*t + 2*y + 1"
 fn = sympify(str1)
+Fn = sympify(str2)
 steps = (tf-tn)/h
 steps = int(steps)
 
@@ -1035,70 +1064,95 @@ while counter < 5:
 
 	if op == 1:
 		euler(steps, tn, yn, fn, h)
+		exata(steps, tn, yn, str2, h)
 	elif op == 2:
 		eulerInv(steps, tn, yn, fn, h)
+		exata(steps, tn, yn, str2, h)
 	elif op == 3:
 		eulerAprimorado(steps, tn, yn, fn, h)
+		exata(steps, tn, yn, str2, h)
 	elif op == 4:
 		rungeKutta(steps, tn, yn, fn, h)
+		exata(steps, tn, yn, str2, h)
 	elif op == 5:
 		print("Digite o valor do K, de 0 a 5")
 		op1 = input()
 		op1 = int(op1)
 		if op1 == 0:
-			k0Bash(steps, tn, yn, fn, h)		
+			k0Bash(steps, tn, yn, fn, h)	
+			exata(steps, tn, yn, str2, h)		
 		if op1 == 1:
 			k1Bash(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 2:
 			k2Bash(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 3:
 			k3Bash(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 4:
 			k4Bash(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 5:
 			k5Bash(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 	elif op == 6:
 		print("Digite o valor do K, de 0 a 5")
 		op1 = input()
 		op1 = int(op1)
 		if op1 == 0:
 			k0Moulton(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 1:
 			k1Moulton(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 2:
 			k2Moulton(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 3:
 			k3Moulton(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 4:
 			k4Moulton(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 5:
 			k5Moulton(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 	elif op == 7:
 		print("Digite o valor do K, de 0 a 5")
 		op1 = input()
 		op1 = int(op1)
 		if op1 == 0:
 			k0MoultonP(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 1:
 			k1MoultonP(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 2:
 			k2MoultonP(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 3:
 			k3MoultonP(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 4:
 			k4MoultonP(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 5:
 			k5MoultonP(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 	elif op == 8:
 		print("Digite o valor do K, entre 0, 1 e 3")
 		op1 = input()
 		op1 = int(op1)
 		if op1 == 0:
 			k0Backward(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 1:
 			k1Backward(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 		if op1 == 3:
 			k3Backward(steps, tn, yn, fn, h)
+			exata(steps, tn, yn, str2, h)
 
 	counter+=1
 
