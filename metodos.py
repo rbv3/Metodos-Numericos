@@ -1056,6 +1056,7 @@ while counter < 5:
 	print("6 - Adam Moulton")
 	print("7 - Adam Moulton com Previsao e Correcao")
 	print("8 - Formula Inversa")
+	print("9 - Fórmula Exata")
 	op = input()
 	op = int(op)
 
@@ -1064,93 +1065,77 @@ while counter < 5:
 
 	if op == 1:
 		euler(steps, tn, yn, fn, h)
-		exata(steps, tn, yn, str2, h)
 	elif op == 2:
 		eulerInv(steps, tn, yn, fn, h)
 	elif op == 3:
 		eulerAprimorado(steps, tn, yn, fn, h)
 	elif op == 4:
 		rungeKutta(steps, tn, yn, fn, h)
-		exata(steps, tn, yn, str2, h)
 	elif op == 5:
 		print("Digite o valor do K, de 0 a 5")
 		op1 = input()
 		op1 = int(op1)
 		if op1 == 0:
-			k0Bash(steps, tn, yn, fn, h)	
-			exata(steps, tn, yn, str2, h)		
+			k0Bash(steps, tn, yn, fn, h)		
 		if op1 == 1:
 			k1Bash(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 2:
 			k2Bash(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 3:
 			k3Bash(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 4:
 			k4Bash(steps, tn, yn, fn, h)
 		if op1 == 5:
 			k5Bash(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 	elif op == 6:
 		print("Digite o valor do K, de 0 a 5")
 		op1 = input()
 		op1 = int(op1)
 		if op1 == 0:
 			k0Moulton(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 1:
 			k1Moulton(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 2:
 			k2Moulton(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 3:
 			k3Moulton(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 4:
 			k4Moulton(steps, tn, yn, fn, h)
 		if op1 == 5:
 			k5Moulton(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 	elif op == 7:
 		print("Digite o valor do K, de 0 a 5")
 		op1 = input()
 		op1 = int(op1)
 		if op1 == 0:
 			k0MoultonP(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 1:
 			k1MoultonP(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 2:
 			k2MoultonP(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 3:
 			k3MoultonP(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 4:
 			k4MoultonP(steps, tn, yn, fn, h)
 		if op1 == 5:
 			k5MoultonP(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 	elif op == 8:
 		print("Digite o valor do K, entre 0, 1 e 3")
 		op1 = input()
 		op1 = int(op1)
 		if op1 == 0:
 			k0Backward(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 1:
 			k1Backward(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 3:
 			k3Backward(steps, tn, yn, fn, h)
+	elif op == 9:
+		exata(steps, tn, yn, str2, h)
 
 	counter+=1
-
-plt.legend(loc='upper left')
+	
+#positions available,center, best, lower||upper + right||left||center
+plt.legend(loc='down right')
 plt.xlabel('t')
 plt.ylabel('y')
 plt.title('Metodos Numericos')
