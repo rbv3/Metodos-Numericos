@@ -1067,10 +1067,8 @@ while counter < 5:
 		exata(steps, tn, yn, str2, h)
 	elif op == 2:
 		eulerInv(steps, tn, yn, fn, h)
-		exata(steps, tn, yn, str2, h)
 	elif op == 3:
 		eulerAprimorado(steps, tn, yn, fn, h)
-		exata(steps, tn, yn, str2, h)
 	elif op == 4:
 		rungeKutta(steps, tn, yn, fn, h)
 		exata(steps, tn, yn, str2, h)
@@ -1092,7 +1090,6 @@ while counter < 5:
 			exata(steps, tn, yn, str2, h)
 		if op1 == 4:
 			k4Bash(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 5:
 			k5Bash(steps, tn, yn, fn, h)
 			exata(steps, tn, yn, str2, h)
@@ -1114,7 +1111,6 @@ while counter < 5:
 			exata(steps, tn, yn, str2, h)
 		if op1 == 4:
 			k4Moulton(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 5:
 			k5Moulton(steps, tn, yn, fn, h)
 			exata(steps, tn, yn, str2, h)
@@ -1136,7 +1132,6 @@ while counter < 5:
 			exata(steps, tn, yn, str2, h)
 		if op1 == 4:
 			k4MoultonP(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 		if op1 == 5:
 			k5MoultonP(steps, tn, yn, fn, h)
 			exata(steps, tn, yn, str2, h)
@@ -1152,7 +1147,6 @@ while counter < 5:
 			exata(steps, tn, yn, str2, h)
 		if op1 == 3:
 			k3Backward(steps, tn, yn, fn, h)
-			exata(steps, tn, yn, str2, h)
 
 	counter+=1
 
